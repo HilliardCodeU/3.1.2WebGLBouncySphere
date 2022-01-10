@@ -6,7 +6,7 @@ let player = new GameObject();
 player.transform.rotation.y = 45;
 let cam = new Camera();
 
-function preload(){
+function preload() {
   myFont = loadFont(
     "PressStart2P-Regular.ttf"
   );
@@ -17,7 +17,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   setAttributes("antialias", true);
   // setup the camera
-  cam.setParent(player,300,300);
+  cam.setParent(player, 300, 300);
   createHUD();
 }
 
@@ -25,8 +25,8 @@ function draw() {
   background(220);
   // light the scene
   ambientLight(128);
-  directionalLight(255,255,255,1,-1,-1);
-  directionalLight(0,0,128,-1,1,1);
+  directionalLight(255, 255, 255, 1, -1, -1);
+  directionalLight(0, 0, 128, -1, 1, 1);
   checkPlayerControls();
   cam.update();
   player.show();
@@ -34,20 +34,20 @@ function draw() {
   drawBoxes();
   // add the p5js text
   push();
-  translate(1000,0,1000);
+  translate(1000, 0, 1000);
   rotateY(45);
   drawText("p5js");
   pop();
   // label the x axis
   push();
-  translate(1000,0,0);
+  translate(1000, 0, 0);
   rotateY(90);
-  drawText("X+","red",10)
+  drawText("X+", "red", 10)
   pop();
   // label the x axis
   push();
-  translate(0,0,1000);
-  drawText("Z+","blue",10);
+  translate(0, 0, 1000);
+  drawText("Z+", "blue", 10);
   pop();
 }
 
@@ -91,7 +91,7 @@ function drawFloor() {
         col * tileSize + tileSize / 2
       );
       fill(255);
-      if((row+col)%2){
+      if ((row + col) % 2) {
         fill(235);
       }
       stroke(0);
@@ -100,14 +100,14 @@ function drawFloor() {
     }
   }
 }
-function drawText(mytext="", color='#ED225D', size=36){
+function drawText(mytext = "", color = '#ED225D', size = 36) {
   push();
-  scale(1,-1,1);
+  scale(1, -1, 1);
   textAlign(CENTER);
   fill(color);
   textFont(myFont);
   textSize(size);
-  text(mytext,0,0);
+  text(mytext, 0, 0);
   pop();
 }
 
